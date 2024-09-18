@@ -73,6 +73,12 @@ public class Libreria {
 
     }
 
+
+    public void setClientes(String nombre){
+        Cliente c =  new Cliente (nombre.split(" "));
+        this.clientes.add(c);
+    }
+
     /*public void negociacion(){
          if(libros.isEmpty()){
             System.out.println("Ya no hay libros :'v");
