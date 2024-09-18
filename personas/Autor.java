@@ -7,6 +7,7 @@
  *
  * @author Edgar
  */
+package personas;
 public class Autor {
     private String nombre;
     private String apellido;

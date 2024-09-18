@@ -1,5 +1,7 @@
+package personas;
 import java.util.ArrayList;
 import java.util.Arrays;
+import libreria.Libro;
 public class Cliente{
     private String nombre;
     private String apellido;

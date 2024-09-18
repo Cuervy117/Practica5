@@ -1,3 +1,4 @@
+package informacion;
 public class Direccion{
 
     // Atributos
@@ -8,19 +9,19 @@ public class Direccion{
     private String estado;
 
     // Constructor
-    /*public Direccion(String direccion){
+    public Direccion(String direccion){
         String[] atributos = direccion.split("-");
         estado = atributos[0];
         municipio = atributos[1];
         colonia = atributos[2];
         calle = atributos[3];
         numero = atributos[4];
-    }*/
+    }
 
-    /*public static Direccion crearDireccion(String direccion){
+    public static Direccion crearDireccion(String direccion){
         Direccion dir = new Direccion(direccion);
         return dir;
-    }*/
+    }
 
     // Setters
     public void setCalle(String calle){

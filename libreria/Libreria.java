@@ -1,13 +1,16 @@
+package libreria;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
+import informacion.Direccion;
+import personas.Cliente;
 public class Libreria {
     private String nombre;
     private String telefono;
     private String horario;
     private ArrayList<Libro> libros;
     private ArrayList<Cliente> clientes;
-    private String direccion;
+    private Direccion direccion;
     public static int ventas;
 
     public Libreria(String nombre, String direccion, String telefono, String horario) {
@@ -15,8 +18,7 @@ public class Libreria {
         this.telefono = telefono;
         this.horario = horario;
         this.libros = new ArrayList<>();
-        this.direccion = direccion;
-        //this.direccion = Direccion.crearDireccion(direccion);
+        this.direccion = new Direccion(direccion);
     }
 
     public void agregarLibro(Libro libro) {
@@ -50,6 +52,13 @@ public class Libreria {
 
     public String getHorario() {
         return horario;
+    }
+
+    public void imprimirInfo(){
+        System.out.println(nombre);
+        System.out.println(direccion.getDireccion());
+        System.out.println(horario);
+        System.out.println(telefono);
     }
 
     public void setHorario(String horario) {

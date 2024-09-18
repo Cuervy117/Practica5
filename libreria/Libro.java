@@ -1,3 +1,5 @@
+package libreria;
+import personas.*;
 public class Libro {
     private String titulo;
     private int añoPublicacion;
