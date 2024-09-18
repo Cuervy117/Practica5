@@ -10,7 +10,7 @@ public class Direccion{
 
     // Constructor
     public Direccion(String direccion){
-        String[] atributos = direccion.split("-");
+        String[] atributos = direccion.split(" ");
         estado = atributos[0];
         municipio = atributos[1];
         colonia = atributos[2];
