@@ -1,12 +1,11 @@
+/**
+ * @author David Diaz  
+ */
 package informacion;
 public class Direccion{
 
     // Atributos
-    private String calle;
-    private String numero;
-    private String colonia;
-    private String municipio;
-    private String estado;
+    private String calle, numero, colonia, municipio, estado;
 
     // Constructor
     public Direccion(String direccion){
@@ -16,11 +15,6 @@ public class Direccion{
         colonia = atributos[2];
         calle = atributos[3];
         numero = atributos[4];
-    }
-
-    public static Direccion crearDireccion(String direccion){
-        Direccion dir = new Direccion(direccion);
-        return dir;
     }
 
     // Setters
