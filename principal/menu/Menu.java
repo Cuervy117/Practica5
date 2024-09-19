@@ -1,11 +1,11 @@
 package principal.menu;
 
+import datos.Archivo;
 import java.io.IOException;
 import java.util.Scanner;
 import libreria.Libreria;
 import libreria.Libro;
 import personas.Cliente;
-import datos.Archivo;
 public class Menu {
 
     private static Libreria libreria = null;
@@ -35,7 +35,7 @@ public class Menu {
                 case 1 -> { // Creación de libreria
                     libreria.imprimirInfo();
                     System.out.println("Presiona Enter para seguir");
-                    sc.nextLine();
+                    sc.next();
                 }
 
                 case 2 -> { // 

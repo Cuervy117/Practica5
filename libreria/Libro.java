@@ -3,7 +3,6 @@
  */
 package libreria;
 import java.util.Scanner;
-
 import personas.*;
 public class Libro {
     // Atributos
@@ -84,5 +83,11 @@ public class Libro {
      */
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+    public void mostrarLibro(){
+        System.out.println(titulo);
+        System.out.println(añoPublicacion);
+        System.out.println(autor);
+        System.out.println(precio);
     }
 }

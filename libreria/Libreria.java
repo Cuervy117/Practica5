@@ -1,8 +1,9 @@
 package libreria;
+import informacion.Direccion;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
-import informacion.Direccion;
 import personas.Cliente;
 public class Libreria {
     
@@ -22,7 +23,7 @@ public class Libreria {
     }
 
     // Métodos
-    public static Libreria fundarLibreria(Scanner sc){
+    public static Libreria fundarLibreria(Scanner sc) throws IOException, InterruptedException{
         String opcion, nom, dir, tel, hor;
     
         System.out.println("Ingresa el nombre de tu libreria");
@@ -36,6 +37,9 @@ public class Libreria {
         System.out.println("¿Seguro que quieres aperturar tu libreria?");
         System.out.println("[S / N]");
         opcion = sc.next();
+
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
         if(opcion.equals("S")) return new Libreria(nom, dir, tel, hor);
         else return null;
     }
@@ -122,7 +126,7 @@ public class Libreria {
     public String getClientes(){
         String cli = "[ ";
         for(Cliente e : clientes.keySet()){
-            cli = cli + e + " ";
+            cli = cli + e.getNombreCompleto() + " ";
         }
         cli = cli + "]";
         return cli;

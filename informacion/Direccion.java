@@ -1,5 +1,6 @@
 /**
  * @author David Diaz  
+ * @author Samuel Cruz
  */
 package informacion;
 public class Direccion{
