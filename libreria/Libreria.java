@@ -5,20 +5,41 @@ import java.util.Scanner;
 import informacion.Direccion;
 import personas.Cliente;
 public class Libreria {
+    
+    public static int ventas; 
     private String nombre;
     private String telefono;
     private String horario;
+    private Direccion direccion;
     private ArrayList<Libro> libros;
     private ArrayList<Cliente> clientes;
-    private Direccion direccion;
-    public static int ventas;
 
+    // Constructor 
     public Libreria(String nombre, String direccion, String telefono, String horario) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.horario = horario;
         this.libros = new ArrayList<>();
         this.direccion = new Direccion(direccion);
+    }
+
+    // Métodos
+    public Libreria fundarLibreria(Scanner sc){
+        String opcion, nom, dir, tel, hor;
+        do{
+            System.out.println("Ingresa el nombre de tu libreria");
+            nom = sc.nextLine();
+            System.out.println("Ingresa la dirección de tu libreria (todo separado por espacios)");
+            dir= sc.nextLine();
+            System.out.println("Ingresa el numero telefonico de tu libreria");
+            tel = sc.nextLine();
+            System.out.println("Ingresa el horario de apertura de tu libreria");
+            hor = sc.nextLine();
+            System.out.println("¿Seguro que quieres aperturar tu libreria?");
+            System.out.println("[S / N]");
+            opcion = sc.next();
+        }while(opcion != "S");
+        return new Libreria(nom, dir, tel, hor);
     }
 
     public void agregarLibro(Libro libro) {
