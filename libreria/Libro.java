@@ -1,46 +1,74 @@
+/**
+ * @author Samuel Cruz 
+ */
 package libreria;
 import personas.*;
 public class Libro {
+    // Atributos
     private String titulo;
     private int añoPublicacion;
     private Autor autor;
     private double precio; 
 
+    /**
+     * Constructor de la clase libro
+     * @param titulo El titulo del libro
+     * @param añoPublicacion El año en el cual se publicó el libro
+     * @param autor El autor del libro
+     * @param precio El precio del libro
+     */
     public Libro(String titulo, int añoPublicacion, Autor autor, double precio) {
         this.titulo = titulo;
         this.añoPublicacion = añoPublicacion;
         this.autor = autor;
         this.precio = precio;
     }
-
+    // Getters
+    /**
+     * Devuelve el titulo del libro
+     * @return El titulo del libro
+     */
     public String getTitulo() {
         return titulo;
     }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
+    /**
+     * Devuelve el año en el que se publico el libro
+     * @return El año de publicacion del libro
+     */
     public int getAñoPublicacion() {
         return añoPublicacion;
+    }
+    /**
+     * Devuelve el autor del libro
+     * @return El autor del libro
+     */
+    public Autor getAutor() {
+        return autor;
+    }
+    /**
+     * Devuelve el precio del libro
+     * @return El precio del libro 
+     */
+    public double getPrecio() {
+        return precio;
+    }
+    // Setters
+    // Pienso que es poco probable que un libro cambie su titulo o su autor, mientras lo voy a documentar
+    /*public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public void setAñoPublicacion(int añoPublicacion) {
         this.añoPublicacion = añoPublicacion;
     }
 
-    public Autor getAutor() {
-        return autor;
-    }
-
     public void setAutor(Autor autor) {
         this.autor = autor;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
+    }*/
+    /**
+     * Cambia el precio del libro 
+     * @param precio El nuevo precio del libro 
+     */
     public void setPrecio(double precio) {
         this.precio = precio;
     }
