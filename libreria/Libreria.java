@@ -1,6 +1,6 @@
 package libreria;
 import java.util.ArrayList;
-import java.util.Hashtable;
+// import java.util.Hashtable;
 import java.util.Scanner;
 import informacion.Direccion;
 import personas.Cliente;
@@ -24,12 +24,12 @@ public class Libreria {
     }
 
     // Métodos
-    public Libreria fundarLibreria(Scanner sc){
+    public static Libreria fundarLibreria(Scanner sc){
         String opcion, nom, dir, tel, hor;
         do{
             System.out.println("Ingresa el nombre de tu libreria");
             nom = sc.nextLine();
-            System.out.println("Ingresa la dirección de tu libreria (todo separado por espacios)");
+            System.out.println("Ingresa la dirección de tu libreria\n Formato \" Estado Municipio Colonia Calle Numero \" (todo separado por espacios)");
             dir= sc.nextLine();
             System.out.println("Ingresa el numero telefonico de tu libreria");
             tel = sc.nextLine();
@@ -38,7 +38,7 @@ public class Libreria {
             System.out.println("¿Seguro que quieres aperturar tu libreria?");
             System.out.println("[S / N]");
             opcion = sc.next();
-        }while(opcion != "S");
+        }while(!opcion.equals("S"));
         return new Libreria(nom, dir, tel, hor);
     }
 
@@ -96,7 +96,7 @@ public class Libreria {
 
 
     public void setClientes(String nombre){
-        Cliente c =  new Cliente (nombre.split(" "));
+        Cliente c =  new Cliente(nombre.split(" ")[0], nombre.split(" ")[1] );
         this.clientes.add(c);
     }
 
