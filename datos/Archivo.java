@@ -34,7 +34,7 @@ public class Archivo {
                 escritor.write(libros.getTitulo() + "\t" + libros.getAñoPublicacion()  + "\t" + libros.getAutor().getInfo()  + "\t" + libros.getPrecio());
                 escritor.newLine();
             }
-            System.out.println("Base de datos de libreria " + libreria.getNombre() + "actualizada");
+            System.out.println("Base de datos de libreria " + libreria.getNombre() + " actualizada");
             escritor.close();
         } catch (IOException | URISyntaxException e) {
             System.out.println("Error al actualizar la base de datos" + e.getMessage());
