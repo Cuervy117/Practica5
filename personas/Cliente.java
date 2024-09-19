@@ -4,6 +4,7 @@
 package personas;
 import java.util.ArrayList;
 import libreria.Libro;
+import java.util.Scanner;
 
 public class Cliente{
     // Atributos
@@ -20,6 +21,14 @@ public class Cliente{
         this.apellido = apellido;
         libros_comprados = new ArrayList<Libro>();
     }
+
+    public static Cliente crearCliente(Scanner sc){
+        String[] nombreCompleto;
+        System.out.println("Ingrese el nombre del cliente");
+        nombreCompleto = sc.nextLine().split(" ");
+        return new Cliente(nombreCompleto[0], nombreCompleto[1]);
+    }
+
     // Getters
     // Considere que en una libreria rara vez nos pediran nuestros apellidos o nombres individualmente
     /**
@@ -42,6 +51,10 @@ public class Cliente{
      */
     public String getNombreCompleto() {
         return this.getNombre() + " " + this.getApellido();
+    }
+
+    public ArrayList<Libro> getLibrosComprados(){
+        return libros_comprados;
     }
     // Setters
     /**

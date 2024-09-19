@@ -2,6 +2,8 @@
  * @author Samuel Cruz 
  */
 package libreria;
+import java.util.Scanner;
+
 import personas.*;
 public class Libro {
     // Atributos
@@ -22,6 +24,17 @@ public class Libro {
         this.añoPublicacion = añoPublicacion;
         this.autor = autor;
         this.precio = precio;
+    }
+
+    public static Libro crearLibro(Scanner sc){
+        System.out.println("Ingresa su titulo");
+        String title = sc.nextLine();
+        System.out.println("Ingresa su año de publicacion");
+        int year = sc.nextInt();
+        Autor a = Autor.getAutor(sc);
+        System.out.println("Ingrese su precio");
+        double price = sc.nextDouble();
+        return new Libro(title, year, a, price);
     }
     // Getters
     /**

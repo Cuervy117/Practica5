@@ -1,15 +1,13 @@
 package principal;
 import libreria.*;
 import personas.*;
-import informacion.*;
-
+import datos.Archivo;
 public class Principal{
     public static void main(String [] args){
         Autor orwell = new Autor("George", "Orwell");
         Autor cortazar = new Autor ("Julio", "Cortazar");
-        Direccion dir = new Direccion ("CDMX Coyoacan Coapa Acoxpa #3" );
-
         Libreria gandhi = new Libreria("Gandhi", "CDMX Coyoacan Coapa Acoxpa #3", "1234","08:00-14:00" );
+        gandhi.agregarLibros(Archivo.leerBaseDeDatos(gandhi));
         System.out.println(gandhi.getHorario());
         Libro libro1 = new Libro("Rayuela", 1963, cortazar, 2000);
         gandhi.agregarLibro(libro1);
@@ -21,7 +19,9 @@ public class Principal{
         gandhi.agregarLibro(l3);
         gandhi.agregarLibro(l4);
         gandhi.agregarLibro(l4);
+        gandhi.agregarLibro(l5);
         gandhi.imprimirInfo();
-        gandhi.setClientes("Juan Perez");
+        Archivo.guardarLibros(gandhi.getLibros(), gandhi);
+        //gandhi.setClientes("Juan Perez");
     }
 }

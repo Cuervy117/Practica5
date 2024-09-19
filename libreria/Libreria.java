@@ -1,18 +1,16 @@
 package libreria;
 import java.util.ArrayList;
-// import java.util.Hashtable;
+import java.util.Hashtable;
 import java.util.Scanner;
 import informacion.Direccion;
 import personas.Cliente;
 public class Libreria {
     
     public static int ventas; 
-    private String nombre;
-    private String telefono;
-    private String horario;
+    private String nombre, telefono, horario;
     private Direccion direccion;
     private ArrayList<Libro> libros;
-    private ArrayList<Cliente> clientes;
+    private Hashtable<Cliente, ArrayList<Libro>> clientes;
 
     // Constructor 
     public Libreria(String nombre, String direccion, String telefono, String horario) {
@@ -26,20 +24,20 @@ public class Libreria {
     // Métodos
     public static Libreria fundarLibreria(Scanner sc){
         String opcion, nom, dir, tel, hor;
-        do{
-            System.out.println("Ingresa el nombre de tu libreria");
-            nom = sc.nextLine();
-            System.out.println("Ingresa la dirección de tu libreria\n Formato \" Estado Municipio Colonia Calle Numero \" (todo separado por espacios)");
-            dir= sc.nextLine();
-            System.out.println("Ingresa el numero telefonico de tu libreria");
-            tel = sc.nextLine();
-            System.out.println("Ingresa el horario de apertura de tu libreria");
-            hor = sc.nextLine();
-            System.out.println("¿Seguro que quieres aperturar tu libreria?");
-            System.out.println("[S / N]");
-            opcion = sc.next();
-        }while(!opcion.equals("S"));
-        return new Libreria(nom, dir, tel, hor);
+    
+        System.out.println("Ingresa el nombre de tu libreria");
+        nom = sc.nextLine();
+        System.out.println("Ingresa la dirección de tu libreria\n Formato \" Estado Municipio Colonia Calle Numero \" (todo separado por espacios)");
+        dir= sc.nextLine();
+        System.out.println("Ingresa el numero telefonico de tu libreria");
+        tel = sc.nextLine();
+        System.out.println("Ingresa el horario de apertura de tu libreria");
+        hor = sc.nextLine();
+        System.out.println("¿Seguro que quieres aperturar tu libreria?");
+        System.out.println("[S / N]");
+        opcion = sc.next();
+        if(opcion.equals("S")) return new Libreria(nom, dir, tel, hor);
+        else return null;
     }
 
     public void agregarLibro(Libro libro) {
@@ -52,6 +50,10 @@ public class Libreria {
 
     public ArrayList<Libro> getLibros() {
         return libros;
+    }
+
+    public void agregarLibros(ArrayList<Libro> li){
+        libros = li;
     }
 
     public String getNombre() {
@@ -75,6 +77,10 @@ public class Libreria {
         return horario;
     }
 
+    public String mostrarLibros(){
+        return libros.toString();
+    }
+
     public void imprimirInfo(){
         System.out.println(nombre);
         System.out.println(direccion.getDireccion());
@@ -87,18 +93,41 @@ public class Libreria {
     }
 
     public void ventaLibro(Cliente comprador, Libro libro){
-
-        clientes.add(comprador); 
+        clientes.get(comprador).add(libro);
         comprador.setLibro_comprado(libro);
-        libros.remove(libro);
-
+        ventas++;
     }
 
 
-    public void setClientes(String nombre){
-        Cliente c =  new Cliente(nombre.split(" ")[0], nombre.split(" ")[1] );
-        this.clientes.add(c);
+    public void agregarCliente(Cliente cliente){
+        clientes.put(cliente, cliente.getLibrosComprados());
     }
+    
+    public void eliminarCliente(String nombreCliente) {
+        Cliente clienteAEliminar = null;
+        for (Cliente cliente : clientes.keySet()) {
+            if (cliente.getNombreCompleto().equals(nombreCliente)) {
+                clienteAEliminar = cliente;
+                break;
+            }
+        }
+        if (clienteAEliminar != null) {
+            clientes.remove(clienteAEliminar);
+            System.out.println("Cliente eliminado exitosamente.");
+        } else {
+            System.out.println("El cliente no existe en la base de datos.");
+        }
+    }
+
+    public String getClientes(){
+        String cli = "[ ";
+        for(Cliente e : clientes.keySet()){
+            cli = cli + e + " ";
+        }
+        cli = cli + "]";
+        return cli;
+    }
+    
 
     /*public void negociacion(){
          if(libros.isEmpty()){
