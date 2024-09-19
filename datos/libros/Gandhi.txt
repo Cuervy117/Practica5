@@ -1,0 +1,6 @@
+Rayuela	1963	Julio Cortazar Sin informacion 0	2000.0
+1984	1945	George Orwell Sin informacion 0	600.0
+Rebelion en la granja	1970	George Orwell Sin informacion 0	2000.0
+Final del juego	1956	Julio Cortazar Sin informacion 0	200.0
+Final del juego	1956	Julio Cortazar Sin informacion 0	200.0
+Homenaje a cataluña	1938	George Orwell Sin informacion 0	200.0
